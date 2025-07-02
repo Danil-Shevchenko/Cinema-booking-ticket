@@ -4,6 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -54,7 +55,7 @@ export default function Header({search, setSearch}) {
   }
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ backgroundColor: '#2e3b55' }}>
         <Toolbar>
           <IconButton
             size="large"
@@ -65,6 +66,14 @@ export default function Header({search, setSearch}) {
           >
           <img src={logo} alt="logo" width={"50px"}/>
           </IconButton>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+          >
+            CinemaBT
+          </Typography>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -72,7 +81,7 @@ export default function Header({search, setSearch}) {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
-            value={search} onChange={handleChange}
+              value={search} onChange={handleChange}
             />
           </Search>
         </Toolbar>
