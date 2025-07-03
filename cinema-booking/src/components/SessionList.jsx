@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -7,6 +8,10 @@ import Typography from "@mui/material/Typography";
 import CardActionArea from "@mui/material/CardActionArea";
 
 export default function SessionList({ filter }) {
+  const navigate = useNavigate();
+  const handleClick = (id) => {
+    navigate(`/session/${id}`);
+  };
   return (
     <Box
       sx={{
@@ -20,7 +25,7 @@ export default function SessionList({ filter }) {
         {filter.map((movie) => (
           <Grid item key={movie.id}>
             <Card sx={{ maxWidth: 250, height: 460 }}>
-              <CardActionArea>
+              <CardActionArea onClick={() => handleClick(movie.id)}>
                 <CardMedia
                   component="img"
                   height={"370px"}
